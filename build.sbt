@@ -2,13 +2,13 @@ name := "vulnerable-scala-app"
 version := "0.1.0"
 scalaVersion := "2.12.8"
 
+mainClass in (Compile, run) := Some("com.vulnerable.Main")
+
 // 60+ vulnerable dependencies from 2019 for 200+ total vulnerabilities
 
 libraryDependencies ++= Seq(
-  // Web Framework (vulnerable versions from 2019)
-  "com.typesafe.play" %% "play" % "2.7.3",
+  // JSON (Play JSON kept as standalone artifact)
   "com.typesafe.play" %% "play-json" % "2.7.3",
-  "com.typesafe.play" %% "play-ws" % "2.7.3",
 
   // Akka ecosystem (old vulnerable versions)
   "com.typesafe.akka" %% "akka-actor" % "2.5.23",
@@ -76,7 +76,6 @@ libraryDependencies ++= Seq(
 
   // JWT
   "com.pauldijou" %% "jwt-core" % "2.1.0",
-  "com.pauldijou" %% "jwt-play" % "2.1.0",
 
   // Redis
   "net.debasishg" %% "redisclient" % "3.10",
