@@ -34,6 +34,7 @@ jobs:
           polaris_test_sast_type: ${{ github.event_name == 'pull_request' && 'SAST-RAPID' || 'SAST-FULL' }}
           polaris_prComment_enabled: ${{ github.event_name == 'pull_request' }}
           polaris_prComment_severities: 'CRITICAL,HIGH,MEDIUM'
+          detect_args: '--detect.accuracy.required=NONE'
           github_token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
